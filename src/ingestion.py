@@ -1,4 +1,3 @@
-
 import pandas as pd
 import duckdb
 
@@ -64,19 +63,11 @@ def create_duckdb_connection():
     return con
 
 
-def inspect_source_schemas(con, manifest):
-    """
-    Inspect one sample file for each taxi type.
-    """
 
+def inspect_source_schemas(con, manifest):
     schema_results = []
 
-    sample_files = manifest[
-        manifest["month"] == min(MONTHS)
-    ]
-
-    for _, source in sample_files.iterrows():
-
+    for index, source in manifest.iterrows():
         schema = con.execute(
             """
             DESCRIBE
@@ -87,20 +78,28 @@ def inspect_source_schemas(con, manifest):
         ).df()
 
         pickup_column = source["pickup_column"]
+        available_columns = schema["column_name"].tolist()
+
+        pickup_column_found = pickup_column in available_columns
 
         schema_results.append({
             "taxi_type": source["taxi_type"],
+            "source_month": source["source_month"],
             "number_of_columns": len(schema),
             "pickup_column": pickup_column,
-            "pickup_column_found":
-                pickup_column in schema["column_name"].tolist()
+            "pickup_column_found": pickup_column_found
         })
+
+        if not pickup_column_found:
+            raise ValueError(
+                f"Missing pickup column '{pickup_column}' "
+                f"in {source['taxi_type']} "
+                f"for {source['source_month']}"
+            )
 
     schema_df = pd.DataFrame(schema_results)
 
-    if not schema_df["pickup_column_found"].all():
-        raise ValueError(
-            "Required pickup datetime column is missing"
-        )
+    if len(schema_df) != len(manifest):
+        raise ValueError("Schema inspection did not cover all source files")
 
     return schema_df

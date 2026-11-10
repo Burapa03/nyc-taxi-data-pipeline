@@ -1,5 +1,25 @@
-taxi_type,number_of_columns,pickup_column,pickup_column_found
-Yellow Taxi,19,tpep_pickup_datetime,True
-Green Taxi,20,lpep_pickup_datetime,True
-FHV,7,pickup_datetime,True
-HVFHV,24,pickup_datetime,True
+taxi_type,source_month,number_of_columns,pickup_column,pickup_column_found
+Yellow Taxi,2024-01,19,tpep_pickup_datetime,True
+Yellow Taxi,2024-02,19,tpep_pickup_datetime,True
+Yellow Taxi,2024-03,19,tpep_pickup_datetime,True
+Yellow Taxi,2024-04,19,tpep_pickup_datetime,True
+Yellow Taxi,2024-05,19,tpep_pickup_datetime,True
+Yellow Taxi,2024-06,19,tpep_pickup_datetime,True
+Green Taxi,2024-01,20,lpep_pickup_datetime,True
+Green Taxi,2024-02,20,lpep_pickup_datetime,True
+Green Taxi,2024-03,20,lpep_pickup_datetime,True
+Green Taxi,2024-04,20,lpep_pickup_datetime,True
+Green Taxi,2024-05,20,lpep_pickup_datetime,True
+Green Taxi,2024-06,20,lpep_pickup_datetime,True
+FHV,2024-01,7,pickup_datetime,True
+FHV,2024-02,7,pickup_datetime,True
+FHV,2024-03,7,pickup_datetime,True
+FHV,2024-04,7,pickup_datetime,True
+FHV,2024-05,7,pickup_datetime,True
+FHV,2024-06,7,pickup_datetime,True
+HVFHV,2024-01,24,pickup_datetime,True
+HVFHV,2024-02,24,pickup_datetime,True
+HVFHV,2024-03,24,pickup_datetime,True
+HVFHV,2024-04,24,pickup_datetime,True
+HVFHV,2024-05,24,pickup_datetime,True
+HVFHV,2024-06,24,pickup_datetime,True

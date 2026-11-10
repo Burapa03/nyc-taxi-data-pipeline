@@ -1,6 +1,7 @@
 check,status,details
-Source file count,PASS,24 files processed
-Negative row counts,PASS,No negative counts found
+Source file count,PASS,24 of 24 expected files processed
+Duplicate source records,PASS,No duplicate taxi type/month records
+Negative or missing row counts,PASS,All row counts are present and non-negative
 Row accounting,PASS,All rows accounted for
 Taxi type coverage,PASS,All 4 taxi types found
 Monthly coverage,PASS,6 months per taxi type

@@ -1,4 +1,3 @@
-
 # NYC Taxi - Data Lifecycle & Reproducible Pipeline
 
 ## 1. Project Overview
@@ -176,19 +175,13 @@ The curated dataset contains 24 records: one record for each taxi type and month
 The pipeline performs the following data quality checks:
 
 1. **Source file count:** Verifies that all 24 expected source files are included.
-2. **Non-negative row counts:** Checks that row counts are not negative.
-3. **Row accounting:** Verifies that raw rows are accounted for as null pickup datetime rows, out-of-period rows, or valid trip rows.
-4. **Taxi type coverage:** Checks that all four expected taxi types are present.
-5. **Monthly coverage:** Checks that each taxi type contains six months of data.
+2. **Duplicate source records:** Detects duplicate taxi type and source month combinations.
+3. **Negative or missing row counts:** Checks that row counts are present and non-negative.
+4. **Row accounting:** Verifies that raw rows are accounted for as null pickup datetime rows, out-of-period rows, or valid trip rows.
+5. **Taxi type coverage:** Checks that all four expected taxi types are present.
+6. **Monthly coverage:** Verifies that all six months from January to June 2024 are included.
 
-For each source file, the audit records:
-
-- Raw row count
-- Null pickup datetime count
-- Records outside the analysis period
-- Valid trip count
-
-The pipeline stops if the validation checks fail.
+The pipeline also inspects the schema of all 24 source files and verifies that each file contains its expected pickup datetime column.
 
 ## 10. Results
 
@@ -216,15 +209,15 @@ Run the test suite:
 python -m pytest -v
 ```
 
-The test suite contains five tests:
+The test suite contains seven tests:
 
 1. Valid data quality audit passes.
 2. Incomplete source data is rejected.
 3. Row accounting errors are detected.
 4. Taxi usage ranking is correct.
 5. Negative trip counts are rejected.
-
-**Latest test result: 5 passed.**
+6. Duplicate source records are detected.
+7. Missing row counts are detected.
 
 ## 12. Design Decisions
 
@@ -246,31 +239,44 @@ Ingestion, transformation, validation, analysis, and orchestration are implement
 
 This improves code organization, maintainability, and testability.
 
+
 ## 13. Comparison with Submission 1
 
-Submission 1 focused on exploring and analyzing NYC Taxi data to answer the original research question.
+Submission 1 focused on exploring and analyzing NYC Taxi data using a notebook to answer the original research question.
 
-Submission 2 extends the previous analysis into a reproducible data pipeline.
+Submission 2 extends the baseline analysis into a reproducible data pipeline with automated ingestion, transformation, data quality validation, curated output, analysis, and execution monitoring.
 
-Major improvements include:
+### Baseline Result Comparison
 
-- Automated source manifest generation.
-- Source schema inspection.
-- Automated processing of 24 Parquet files.
-- Data quality validation and audit reports.
-- Curated monthly output.
-- Automated taxi usage analysis.
-- Pipeline execution status and logging.
-- Unit tests for validation and analysis logic.
+| Taxi Type | Submission 1 | Submission 2 |
+|---|---:|---:|
+| HVFHV | 120,864,668 | 120,864,668 |
+| Yellow Taxi | 20,332,054 | 20,332,054 |
+| FHV | 8,119,228 | 8,119,228 |
+| Green Taxi | 339,801 | 339,801 |
 
-The original research question and overall result remain consistent with Submission 1.
+The results are consistent across both submissions. HVFHV remains the most used taxi type in the first half of 2024, with 120,864,668 records.
+
+### Improvements in Submission 2
+
+- Automated source manifest generation for 24 Parquet files.
+- Schema inspection across all 24 source files.
+- Automated data transformation and monthly aggregation.
+- Dynamic data quality validation based on configured taxi types and months.
+- Detection of duplicate source records and missing row counts.
+- Curated monthly output for downstream analysis.
+- Automated analysis, execution status, and logging.
+- Seven unit tests covering validation and analysis logic.
+
+Submission 1 established the analytical baseline, while Submission 2 improves reproducibility, maintainability, and data quality monitoring.
+
 
 ## 14. Limitations
 
 - The pipeline requires an internet connection and depends on the availability of the NYC TLC CloudFront data repository.
 - Temporary HTTP 403 errors may interrupt access to source files.
 - The pipeline performs a full refresh rather than incremental processing.
-- Schema inspection checks one sample month per taxi type rather than every source file.
+- Schema inspection checks all 24 configured source files, but only verifies the expected pickup datetime column and does not validate the semantic correctness of every column.
 - The analysis uses valid record counts as the measure of taxi usage.
 - The current validation rules are designed around four taxi types and a six-month study period.
 - Data quality checks do not establish whether every source record represents a completed passenger journey.

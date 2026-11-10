@@ -1,8 +1,8 @@
 {
     "status": "SUCCESS",
-    "started_at": "2026-11-10T17:19:57.210122+00:00",
-    "finished_at": "2026-11-10T17:20:06.403013+00:00",
-    "duration_seconds": 9.19,
+    "started_at": "2026-11-10T17:51:56.064205+00:00",
+    "finished_at": "2026-11-10T17:52:05.886912+00:00",
+    "duration_seconds": 9.82,
     "source_files_processed": 24,
     "curated_records": 24,
     "result": {

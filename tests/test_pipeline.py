@@ -88,3 +88,22 @@ def test_analysis_rejects_negative_trips():
 
     with pytest.raises(ValueError):
         analyze_curated_data(data)
+
+
+def test_duplicate_source_fails(sample_audit):
+    invalid = sample_audit.copy()
+
+    # Duplicate the first source record
+    invalid.loc[1, "source_month"] = invalid.loc[0, "source_month"]
+    invalid.loc[1, "taxi_type"] = invalid.loc[0, "taxi_type"]
+
+    with pytest.raises(ValueError, match="Duplicate"):
+        validate_audit(invalid)
+
+
+def test_missing_row_counts_fail(sample_audit):
+    invalid = sample_audit.copy()
+    invalid.loc[0, "raw_rows"] = None
+
+    with pytest.raises(ValueError, match="Missing row counts"):
+        validate_audit(invalid)

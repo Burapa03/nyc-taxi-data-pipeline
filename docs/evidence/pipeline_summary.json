@@ -1,0 +1,15 @@
+{
+    "status": "SUCCESS",
+    "started_at": "2026-11-10T17:19:57.210122+00:00",
+    "finished_at": "2026-11-10T17:20:06.403013+00:00",
+    "duration_seconds": 9.19,
+    "source_files_processed": 24,
+    "curated_records": 24,
+    "result": {
+        "most_used_taxi_type": "HVFHV",
+        "total_trips": 120864668,
+        "percentage": 80.76179311010908,
+        "rank": 1
+    },
+    "error": null
+}

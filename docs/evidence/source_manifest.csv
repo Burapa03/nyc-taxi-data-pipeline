@@ -1,0 +1,25 @@
+taxi_type,year,month,source_month,pickup_column,source_url
+Yellow Taxi,2024,1,2024-01,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet
+Yellow Taxi,2024,2,2024-02,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-02.parquet
+Yellow Taxi,2024,3,2024-03,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-03.parquet
+Yellow Taxi,2024,4,2024-04,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-04.parquet
+Yellow Taxi,2024,5,2024-05,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-05.parquet
+Yellow Taxi,2024,6,2024-06,tpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-06.parquet
+Green Taxi,2024,1,2024-01,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-01.parquet
+Green Taxi,2024,2,2024-02,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-02.parquet
+Green Taxi,2024,3,2024-03,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-03.parquet
+Green Taxi,2024,4,2024-04,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-04.parquet
+Green Taxi,2024,5,2024-05,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-05.parquet
+Green Taxi,2024,6,2024-06,lpep_pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-06.parquet
+FHV,2024,1,2024-01,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-01.parquet
+FHV,2024,2,2024-02,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-02.parquet
+FHV,2024,3,2024-03,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-03.parquet
+FHV,2024,4,2024-04,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-04.parquet
+FHV,2024,5,2024-05,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-05.parquet
+FHV,2024,6,2024-06,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhv_tripdata_2024-06.parquet
+HVFHV,2024,1,2024-01,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-01.parquet
+HVFHV,2024,2,2024-02,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-02.parquet
+HVFHV,2024,3,2024-03,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-03.parquet
+HVFHV,2024,4,2024-04,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-04.parquet
+HVFHV,2024,5,2024-05,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-05.parquet
+HVFHV,2024,6,2024-06,pickup_datetime,https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-06.parquet

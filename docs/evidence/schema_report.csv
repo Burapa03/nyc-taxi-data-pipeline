@@ -1,0 +1,5 @@
+taxi_type,number_of_columns,pickup_column,pickup_column_found
+Yellow Taxi,19,tpep_pickup_datetime,True
+Green Taxi,20,lpep_pickup_datetime,True
+FHV,7,pickup_datetime,True
+HVFHV,24,pickup_datetime,True

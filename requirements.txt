@@ -1,0 +1,6 @@
+pandas
+pyarrow
+requests
+matplotlib
+duckdb==1.4.5
+pytest

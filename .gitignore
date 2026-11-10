@@ -1,0 +1,21 @@
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Raw source data
+data/raw/
+
+# Generated curated data (keep submission evidence in docs/evidence/)
+data/curated/
+
+# Runtime reports and logs
+reports/*
+
+# OS files
+.DS_Store
+Thumbs.db
